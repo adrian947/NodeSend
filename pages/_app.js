@@ -1,7 +1,15 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { AuthState } from "../context/auth/authState";
+import { ArchivosState } from "../context/archivos/archivosState";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <AuthState>
+      <ArchivosState>
+        <Component {...pageProps} />
+      </ArchivosState>
+    </AuthState>
+  );
+};
 
-export default MyApp
+export default MyApp;
